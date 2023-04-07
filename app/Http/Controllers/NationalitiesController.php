@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Client\HttpClientException;
+use Illuminate\Support\Facades\Http;
 
 class NationalitiesController extends Controller
 {
@@ -13,7 +15,24 @@ class NationalitiesController extends Controller
      */
     public function index()
     {
-        //
+        try {
+
+            $apiUrl = \env('API_URL');
+            $response = Http::get($apiUrl.'/nationality');
+            $message = '';
+            if ($response->ok()) {
+                $data = $response->json();
+                return view('nationality.index', compact('data'));
+            } else {
+                // Menghandle response gagal
+                $message = 'Failed to get data from API';
+                return view('layouts.error', compact('message'));
+            }
+        } catch (\Exception $e) {
+            // Menghandle error
+            $message = $e->getMessage();
+            return view('layouts.error', compact('message'));
+        }
     }
 
     /**
@@ -24,6 +43,7 @@ class NationalitiesController extends Controller
     public function create()
     {
         //
+        return view('nationality.create');
     }
 
     /**
