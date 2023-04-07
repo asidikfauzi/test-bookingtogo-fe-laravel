@@ -14,11 +14,11 @@
         <div class="form-group row">
             <div class="col-sm-6 mb-3 mb-sm-0">
                 <input type="text" name="nationality_name" class="form-control form-control-user"
-                    id="exampleFirstName" value="{{$responseData['data']['nationality_name']}}">
+                    value="{{$responseData['data']['nationality_name']}}" required>
             </div>
             <div class="col-sm-6">
                 <input type="text" name="nationality_code" class="form-control form-control-user"
-                    maxlength="2" id="exampleLastName" value="{{$responseData['data']['nationality_code']}}">
+                    maxlength="2" value="{{$responseData['data']['nationality_code']}}" required>
             </div>
         </div>
         <input type="submit" class="btn btn-primary btn-user btn-block" value="Submit">
