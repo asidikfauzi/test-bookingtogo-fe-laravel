@@ -13,7 +13,7 @@ class NationalitiesController extends Controller
 
     public function index()
     {
-       return view('nationality.index');
+        return view('nationality.index');
     }
 
     public function getDataNationalities()
@@ -27,21 +27,21 @@ class NationalitiesController extends Controller
             {
                 $data = $response->json();
                 return DataTables::of($data['data'])->addIndexColumn()
-                    ->addColumn('edit', function($row){
-                        return '<a href="'.route('updateNationality',$row['nationality_id']).'" class="btn btn-primary btn-block">
-                                    <i class="bi bi-pencil-square"></i>
-                                    Edit
-                                </a>';
-                    })
-                    ->addColumn('delete', function($row){
-                        return ' <a class="btn btn-danger btn-block modal-deletetab1"
-                                        href="#" data-id="'.$row['nationality_id'].'">
-                                    <i class="bi bi-trash-fill"></i>
-                                    Delete
-                                </a>';
-                    })
-                    ->rawColumns(['edit','delete'])
-                    ->make(true);
+                ->addColumn('edit', function($row){
+                    return '<a href="'.route('updateNationality',$row['nationality_id']).'" class="btn btn-primary btn-block">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>';
+                })
+                ->addColumn('delete', function($row){
+                    return ' <a class="btn btn-danger btn-block modal-deletetab1"
+                                    href="#" data-id="'.$row['nationality_id'].'">
+                                <i class="bi bi-trash-fill"></i>
+                            </a>';
+                })
+                ->rawColumns(['edit','delete'])
+                ->make(true);
+
+
             }
             else
             {
@@ -55,7 +55,6 @@ class NationalitiesController extends Controller
             return view('layouts.error', compact('message'));
         }
     }
-
 
     public function create()
     {
@@ -114,12 +113,6 @@ class NationalitiesController extends Controller
         }
     }
 
-
-    public function show($id)
-    {
-
-    }
-
     public function edit($id)
     {
         $url = \env('API_URL') . "/nationality/". $id;
@@ -174,8 +167,6 @@ class NationalitiesController extends Controller
             Alert::success('Error', $responseData['message']);
             return back();
         }
-
-
     }
 
     public function destroy($id)
