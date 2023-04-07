@@ -13,11 +13,11 @@
         <div class="form-group row">
             <div class="col-sm-6 mb-3 mb-sm-0">
                 <input type="text" name="nationality_name" class="form-control form-control-user"
-                    id="exampleFirstName"placeholder="Nationality Name">
+                    placeholder="Nationality Name" required>
             </div>
             <div class="col-sm-6">
                 <input type="text" name="nationality_code" class="form-control form-control-user"
-                    maxlength="2" id="exampleLastName" placeholder="Nationality Code">
+                    maxlength="2" placeholder="Nationality Code" required>
             </div>
         </div>
         <input type="submit" class="btn btn-primary btn-user btn-block" value="Submit">
