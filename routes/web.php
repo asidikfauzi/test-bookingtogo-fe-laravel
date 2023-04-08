@@ -16,15 +16,7 @@ use App\Http\Controllers\FamilyListController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/layouts', function () {
-    return view('layouts.app');
-});
-
-
+Route::get('/', [NationalitiesController::class, 'index'])->name('getNationality');
 
 Route::prefix('booking-to-go')->group(function () {
 
