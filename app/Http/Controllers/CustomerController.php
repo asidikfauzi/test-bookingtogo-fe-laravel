@@ -31,14 +31,12 @@ class CustomerController extends Controller
                     ->addColumn('edit', function($row){
                         return '<a href="'.route('updateCustomer',$row['cst_id']).'" class="btn btn-primary btn-block">
                                     <i class="bi bi-pencil-square"></i>
-                                    Edit
                                 </a>';
                     })
                     ->addColumn('delete', function($row){
                         return ' <a class="btn btn-danger btn-block modal-deletetab1"
                                         href="#" data-id="'.$row['cst_id'].'">
                                     <i class="bi bi-trash-fill"></i>
-                                    Delete
                                 </a>';
                     })
                     ->rawColumns(['edit','delete'])
