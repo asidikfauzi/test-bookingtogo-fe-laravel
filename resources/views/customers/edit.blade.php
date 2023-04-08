@@ -6,7 +6,7 @@
         Back
     </a>
     <div class="text-center">
-        <h1 class="h4 text-gray-900 mb-4">Create Customer!</h1>
+        <h1 class="h4 text-gray-900 mb-4">Edit Customer!</h1>
     </div>
     <form method="POST" action="{{route('updateCustomer', $responseData['data']['cst_id'])}}" class="user">
         @csrf
